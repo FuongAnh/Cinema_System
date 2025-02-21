@@ -61,6 +61,7 @@ namespace Cinema_System.Areas.Guest.Controllers
 
 
 
+
         public async Task<IActionResult> Showing()
         {
             IEnumerable<Movie> movies = await _unitOfWork.Movie.GetAllAsync(u => !u.IsUpcomingMovie);
@@ -83,6 +84,16 @@ namespace Cinema_System.Areas.Guest.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> Homepage()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> MovieDetail()
+        {
+            return View();
         }
 
     }
